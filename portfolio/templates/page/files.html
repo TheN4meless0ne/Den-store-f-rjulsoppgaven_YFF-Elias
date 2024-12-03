@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h1>Filer</h1>
+    <br>
+    <h3>CV</h3>
+    <a href="{{ url_for('static', filename='pdf/CV Elias Greig-Vistnes.pdf') }}" class="btn btn-primary" download>Last ned CV</a>
+    <br>
+    <br>
+    <h3>Attest - Kongeparken</h3>
+    <a href="{{ url_for('static', filename='pdf/Attest 2024 sommer Eventyrer64.pdf') }}" class="btn btn-primary" download>Last ned Attest</a>
+    <br>
+    <br>
+    <!-- Continue as needed -->
+{% endblock content %}

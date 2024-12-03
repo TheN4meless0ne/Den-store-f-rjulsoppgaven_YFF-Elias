@@ -15,5 +15,9 @@ def index():
 def cv():
     return render_template('page/cv.html')
 
+@app.route('/files')
+def downloads():
+    return render_template('page/files.html')
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
