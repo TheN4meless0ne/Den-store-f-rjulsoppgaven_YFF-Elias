@@ -14,7 +14,7 @@ def index():
 
 @app.route('/portfolio')
 def portfolio():
-    with open('../infomodule/data/info.json') as f:
+    with open('../infomodule/data/info.json', encoding='utf-8') as f:
         info_data = json.load(f)
     return render_template('page/portfolio.html', info=info_data['myInfo'])
 
