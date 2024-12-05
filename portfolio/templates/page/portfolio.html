@@ -1,42 +1,94 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="portfolio_header">
-        <h1>{{ info.name | e }}</h1>
-        <h5>
-            <span>
-                <span>Telefon:</span>
-                <a href="tel:{{ info.phone | e }}" class="normalText">{{ info.phone | e }}</a>
-            </span>
-        </h5>
-        <h5>
-            <span>
-                <span>E-post:</span>
-                <a href="mailto:{{ info.email | e }}" class="normalText">{{ info.email | e }}</a>
-            </span>
-        </h5>
-        <h5>
-            <span>
-                <span>Github:</span>
-                <a href="https://github.com/TheN4meless0ne" class="normalText">TheN4meless0ne</a>
-            </span>
-        </h5>
+    <div class="portfolio-container">
+        <div class="portfolio">
+            <div class="portfolio_header">
+                <h1>{{ info.name | e }}</h1>
+                <h5>
+                    <span>
+                        <span>Telefon:</span>
+                        <a href="tel:{{ info.phone | e }}" class="normalText">{{ info.phone | e }}</a>
+                    </span>
+                </h5>
+                <h5>
+                    <span>
+                        <span>E-post:</span>
+                        <a href="mailto:{{ info.email | e }}" class="normalText">{{ info.email | e }}</a>
+                    </span>
+                </h5>
+                <h5>
+                    <span>
+                        <span>Github:</span>
+                        <a href="https://github.com/TheN4meless0ne" class="normalText">TheN4meless0ne</a>
+                    </span>
+                </h5>
+            </div>
+            <hr>
+            <div class="portfolio_content_container">
+                <div class="portfolio_content">
+                    <p>{{ info.profile | replace('\n', '<br>') | safe }}</p>
+                    <hr>
+                    <h4>Utdanning</h4>
+                    {% for edu in info.education %}
+                        <div class="education_item">
+                            <p class="bold-text no-margin">{{ edu.school }}</p>
+                            <p class="no-margin">{{ edu.year }}</p>
+                            <p>{{ edu.program }}</p>
+                        </div>
+                    {% endfor %}
+                    <hr>
+                    <h4>Arbetslivserfaring</h4>
+                    {% for work in info.workExperience %}
+                        <div class="work_item">
+                            <p class="bold-text no-margin">{{ work.coandposition }}</p>
+                            <p class="no-margin">{{ work.start2end }}</p>
+                            <p>{{ work.description }}</p>
+                        </div>
+                    {% endfor %}
+                    <hr>
+                    <h4>Prosjekter</h4>
+                    {% for project in info.projects %}
+                        <div class="project_item">
+                            <p class="bold-text no-margin">{{ project.title }}</p>
+                            <p class="no-margin">{{ project.description }}</p>
+                        </div>
+                    {% endfor %}
+                     <hr>
+                     <h4>Ferdigheter</h4>
+                     {% for skill_category in info.skills %}
+                        <details class="skills_category">
+                            <summary class="larger_text">{{ skill_category.category }}</summary>
+                            <ul>
+                                {% for skill in skill_category.skills %}
+                                    <li>{{ skill }}</li>
+                                {% endfor %}
+                            </ul>
+                        </details>
+                    {% endfor %}
+                </div>
+            </div>
+            <hr>
+            <div class="portfolio_footer">
+                <h5>Kontaktinformasjon</h5>
+                <h6>
+                    <span>
+                        <span>Telefon:</span>
+                        <a href="tel:{{ info.phone | e }}" class="normalText">{{ info.phone | e }}</a>
+                    </span>
+                </h6>
+                <h6>
+                    <span>
+                        <span>E-post:</span>
+                        <a href="mailto:{{ info.email | e }}" class="normalText">{{ info.email | e }}</a>
+                    </span>
+                </h6>
+            </div>
+        </div>
+        {% if imageInfo.showImage %}
+            <div class="image-container">
+                <img src="{{ url_for('serve_image', filename=imageInfo.filename) }}" alt="{{ imageInfo.alt }}" class="profile-image large-right">
+            </div>
+        {% endif %}
     </div>
-    <hr>
-    <div class="portfolio_content">
-        <h4>Profil</h4>
-        <p>{{ info.profile | replace('\n', '<br>') | safe }}</p>
-    </div>
-    <hr>
-    <div class="portfolio_footer">
-        <h3>Footer</h3>
 {% endblock content %}
-
-<!--     
-<details>
-    <summary>Test</summary>
-    <code>
-        This is a test
-    </code>
-</details>
--->

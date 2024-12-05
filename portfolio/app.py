@@ -16,7 +16,9 @@ def index():
 def portfolio():
     with open('../infomodule/data/info.json', encoding='utf-8') as f:
         info_data = json.load(f)
-    return render_template('page/portfolio.html', info=info_data['myInfo'])
+    with open('../infomodule/data/image.json', encoding='utf-8') as f:
+        image_data = json.load(f)
+    return render_template('page/portfolio.html', info=info_data['myInfo'], imageInfo=image_data['imageInfo'])
 
 @app.route('/cv')
 def cv():
@@ -34,6 +36,10 @@ def downloads():
 @app.route('/download/<filename>')
 def download_file(filename):
     return send_from_directory('../infomodule/pdf_files', filename)
+
+@app.route('/images/<filename>')
+def serve_image(filename):
+    return send_from_directory('../infomodule/images', filename)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
