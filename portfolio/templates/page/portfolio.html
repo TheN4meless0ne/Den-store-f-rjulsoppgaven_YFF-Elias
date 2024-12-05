@@ -39,6 +39,14 @@
                         </div>
                     {% endfor %}
                     <hr>
+                    <h4>Arbetslivserfaring</h4>
+                    {% for work in info.workExperience %}
+                        <div class="work_item">
+                            <p class="bold-text no-margin">{{ work.coandposition }}</p>
+                            <p class="no-margin">{{ work.description }}</p>
+                            <p>{{ work.start2end }}</p>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="portfolio_footer">
