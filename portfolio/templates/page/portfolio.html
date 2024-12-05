@@ -56,12 +56,12 @@
                     {% endfor %}
                      <hr>
                      <h4>Ferdigheter</h4>
-                     {% for category, skills in info.skills | groupby('category') %}
+                     {% for skill_category in info.skills %}
                         <div class="skills_category">
-                            <h5>{{ category }}</h5>
+                            <h5>{{ skill_category.category }}</h5>
                             <ul>
-                                {% for skill in skills %}
-                                    <li>{{ skill.list }}</li>
+                                {% for skill in skill_category.skills %}
+                                    <li>{{ skill }}</li>
                                 {% endfor %}
                             </ul>
                         </div>
