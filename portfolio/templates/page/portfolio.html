@@ -57,19 +57,32 @@
                      <hr>
                      <h4>Ferdigheter</h4>
                      {% for skill_category in info.skills %}
-                        <div class="skills_category">
-                            <h5>{{ skill_category.category }}</h5>
+                        <details class="skills_category">
+                            <summary class="larger_text">{{ skill_category.category }}</summary>
                             <ul>
                                 {% for skill in skill_category.skills %}
                                     <li>{{ skill }}</li>
                                 {% endfor %}
                             </ul>
-                        </div>
+                        </details>
                     {% endfor %}
                 </div>
             </div>
+            <hr>
             <div class="portfolio_footer">
-                <h3>[Insert Footer Text]</h3>
+                <h5>Kontaktinformasjon</h5>
+                <h6>
+                    <span>
+                        <span>Telefon:</span>
+                        <a href="tel:{{ info.phone | e }}" class="normalText">{{ info.phone | e }}</a>
+                    </span>
+                </h6>
+                <h6>
+                    <span>
+                        <span>E-post:</span>
+                        <a href="mailto:{{ info.email | e }}" class="normalText">{{ info.email | e }}</a>
+                    </span>
+                </h6>
             </div>
         </div>
         {% if imageInfo.showImage %}
