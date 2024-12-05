@@ -28,15 +28,10 @@
         <p>{{ info.profile | replace('\n', '<br>') | safe }}</p>
     </div>
     <hr>
+    <div class="portfolio_content">
+        <h4>Utdanning</h4>
+        <p>{{ info.education | replace('\n', '<br>') | safe }}</p>
+    <hr>
     <div class="portfolio_footer">
         <h3>Footer</h3>
 {% endblock content %}
-
-<!--     
-<details>
-    <summary>Test</summary>
-    <code>
-        This is a test
-    </code>
-</details>
--->
