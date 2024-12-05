@@ -9,3 +9,16 @@
 .education_item {
     margin-bottom: 10px; /* Adjust this value to control the vertical distance */
 }
+
+.portfolio {
+    width: 60%;
+    position: relative;
+}
+
+.profile-image {
+    position: absolute;
+    top: 0;
+    right: -150px; /* Adjust this value to control the horizontal position */
+    width: 150px; /* Adjust this value to control the image size */
+    height: auto;
+}

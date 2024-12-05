@@ -1,44 +1,46 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="portfolio_header">
-        <h1>{{ info.name | e }}</h1>
-        <h5>
-            <span>
-                <span>Telefon:</span>
-                <a href="tel:{{ info.phone | e }}" class="normalText">{{ info.phone | e }}</a>
-            </span>
-        </h5>
-        <h5>
-            <span>
-                <span>E-post:</span>
-                <a href="mailto:{{ info.email | e }}" class="normalText">{{ info.email | e }}</a>
-            </span>
-        </h5>
-        <h5>
-            <span>
-                <span>Github:</span>
-                <a href="https://github.com/TheN4meless0ne" class="normalText">TheN4meless0ne</a>
-            </span>
-        </h5>
+    <div class="portfolio">
+        <div class="portfolio_header">
+            <h1>{{ info.name | e }}</h1>
+            <h5>
+                <span>
+                    <span>Telefon:</span>
+                    <a href="tel:{{ info.phone | e }}" class="normalText">{{ info.phone | e }}</a>
+                </span>
+            </h5>
+            <h5>
+                <span>
+                    <span>E-post:</span>
+                    <a href="mailto:{{ info.email | e }}" class="normalText">{{ info.email | e }}</a>
+                </span>
+            </h5>
+            <h5>
+                <span>
+                    <span>Github:</span>
+                    <a href="https://github.com/TheN4meless0ne" class="normalText">TheN4meless0ne</a>
+                </span>
+            </h5>
+        </div>
+        <hr>
+        <div class="portfolio_content">
+            <h4>Profil</h4>
+            <p>{{ info.profile | replace('\n', '<br>') | safe }}</p>
+        </div>
+        <hr>
+        <div class="portfolio_content">
+            <h4>Utdanning</h4>
+            {% for edu in info.education %}
+                <div class="education_item">
+                    <p class="bold-text no-margin">{{ edu.school }}</p>
+                    <p class="no-margin">{{ edu.program }}</p>
+                    <p>{{ edu.year }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <hr>
+        <div class="portfolio_footer">
+            <h3>[Insert Footer Text]</h3>
     </div>
-    <hr>
-    <div class="portfolio_content">
-        <h4>Profil</h4>
-        <p>{{ info.profile | replace('\n', '<br>') | safe }}</p>
-    </div>
-    <hr>
-    <div class="portfolio_content">
-        <h4>Utdanning</h4>
-        {% for edu in info.education %}
-            <div class="education_item">
-                <p class="bold-text no-margin">{{ edu.school }}</p>
-                <p class="no-margin">{{ edu.program }}</p>
-                <p>{{ edu.year }}</p>
-            </div>
-        {% endfor %}
-    </div>
-    <hr>
-    <div class="portfolio_footer">
-        <h3>[Insert Footer Text]</h3>
 {% endblock content %}
