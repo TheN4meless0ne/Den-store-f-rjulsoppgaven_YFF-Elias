@@ -27,15 +27,14 @@
             <hr>
             <div class="portfolio_content_container">
                 <div class="portfolio_content">
-                    <h4>Profil</h4>
                     <p>{{ info.profile | replace('\n', '<br>') | safe }}</p>
                     <hr>
                     <h4>Utdanning</h4>
                     {% for edu in info.education %}
                         <div class="education_item">
                             <p class="bold-text no-margin">{{ edu.school }}</p>
-                            <p class="no-margin">{{ edu.program }}</p>
-                            <p>{{ edu.year }}</p>
+                            <p class="no-margin">{{ edu.year }}</p>
+                            <p>{{ edu.program }}</p>
                         </div>
                     {% endfor %}
                     <hr>
@@ -43,10 +42,16 @@
                     {% for work in info.workExperience %}
                         <div class="work_item">
                             <p class="bold-text no-margin">{{ work.coandposition }}</p>
-                            <p class="no-margin">{{ work.description }}</p>
-                            <p>{{ work.start2end }}</p>
+                            <p class="no-margin">{{ work.start2end }}</p>
+                            <p>{{ work.description }}</p>
                         </div>
                     {% endfor %}
+                    <hr>
+                    <h4>Prosjekter</h4>
+                    <!-- make project for loop -->
+                     <hr>
+                     <h4>Ferdigheter</h4>
+                    <!-- make skills for loop -->
                 </div>
             </div>
             <div class="portfolio_footer">
