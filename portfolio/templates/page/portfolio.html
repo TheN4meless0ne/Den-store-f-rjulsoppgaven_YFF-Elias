@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h1>{{ info.name }}</h1>
+    <h5>
+        <span>
+            <span>Telefon:</span>
+            <a href="tel:{{ info.phone }}" class="normalText">{{ info.phone }}</a>
+        </span>
+    </h5>
+    <h5>
+        <span>
+            <span>E-post:</span>
+            <a href="mailto:{{ info.email }}" class="normalText">{{ info.email }}</a>
+        </span>
+    </h5>
+{% endblock content %}
