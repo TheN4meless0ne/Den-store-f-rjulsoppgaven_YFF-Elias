@@ -1,0 +1,11 @@
+.bold-text {
+    font-weight: bold;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.education_item {
+    margin-bottom: 10px; /* Adjust this value to control the vertical distance */
+}

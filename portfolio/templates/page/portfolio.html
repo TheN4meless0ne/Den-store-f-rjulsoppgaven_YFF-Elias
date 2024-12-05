@@ -30,8 +30,15 @@
     <hr>
     <div class="portfolio_content">
         <h4>Utdanning</h4>
-        <p>{{ info.education | replace('\n', '<br>') | safe }}</p>
+        {% for edu in info.education %}
+            <div class="education_item">
+                <p class="bold-text no-margin">{{ edu.school }}</p>
+                <p class="no-margin">{{ edu.program }}</p>
+                <p>{{ edu.year }}</p>
+            </div>
+        {% endfor %}
+    </div>
     <hr>
     <div class="portfolio_footer">
-        <h3>Footer</h3>
+        <h3>[Insert Footer Text]</h3>
 {% endblock content %}
