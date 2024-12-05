@@ -24,7 +24,7 @@
             </h5>
         </div>
         {% if imageInfo.showImage %}
-            <img src="{{ imageInfo.src }}" alt="{{ imageInfo.alt }}" class="profile-image">
+            <img src="{{ url_for('serve_image', filename=imageInfo.filename) }}" alt="{{ imageInfo.alt }}" class="profile-image">
         {% endif %}
         <hr>
         <div class="portfolio_content">

@@ -37,5 +37,9 @@ def downloads():
 def download_file(filename):
     return send_from_directory('../infomodule/pdf_files', filename)
 
+@app.route('/images/<filename>')
+def serve_image(filename):
+    return send_from_directory('../infomodule/images', filename)
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
