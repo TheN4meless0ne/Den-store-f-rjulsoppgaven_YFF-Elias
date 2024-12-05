@@ -23,6 +23,9 @@
                 </span>
             </h5>
         </div>
+        {% if imageInfo.showImage %}
+            <img src="{{ imageInfo.src }}" alt="{{ imageInfo.alt }}" class="profile-image">
+        {% endif %}
         <hr>
         <div class="portfolio_content">
             <h4>Profil</h4>
@@ -42,5 +45,6 @@
         <hr>
         <div class="portfolio_footer">
             <h3>[Insert Footer Text]</h3>
+        </div>
     </div>
 {% endblock content %}
