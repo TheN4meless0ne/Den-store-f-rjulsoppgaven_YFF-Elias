@@ -1,23 +1,42 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h1>{{ info.name }}</h1>
-    <h5>
-        <span>
-            <span>Telefon:</span>
-            <a href="tel:{{ info.phone }}" class="normalText">{{ info.phone }}</a>
-        </span>
-    </h5>
-    <h5>
-        <span>
-            <span>E-post:</span>
-            <a href="mailto:{{ info.email }}" class="normalText">{{ info.email }}</a>
-        </span>
-    </h5>
-    <h5>
-        <span>
-            <span>Github:</span>
-            <a href="https://github.com/TheN4meless0ne" class="normalText">TheN4meless0ne</a>
-        </span>
-    </h5>
+    <div class="portfolio_header">
+        <h1>{{ info.name | e }}</h1>
+        <h5>
+            <span>
+                <span>Telefon:</span>
+                <a href="tel:{{ info.phone | e }}" class="normalText">{{ info.phone | e }}</a>
+            </span>
+        </h5>
+        <h5>
+            <span>
+                <span>E-post:</span>
+                <a href="mailto:{{ info.email | e }}" class="normalText">{{ info.email | e }}</a>
+            </span>
+        </h5>
+        <h5>
+            <span>
+                <span>Github:</span>
+                <a href="https://github.com/TheN4meless0ne" class="normalText">TheN4meless0ne</a>
+            </span>
+        </h5>
+    </div>
+    <hr>
+    <div class="portfolio_content">
+        <h4>Profil</h4>
+        <p>{{ info.profile | replace('\n', '<br>') | safe }}</p>
+    </div>
+    <hr>
+    <div class="portfolio_footer">
+        <h3>Footer</h3>
 {% endblock content %}
+
+<!--     
+<details>
+    <summary>Test</summary>
+    <code>
+        This is a test
+    </code>
+</details>
+-->
