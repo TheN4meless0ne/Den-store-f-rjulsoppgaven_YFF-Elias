@@ -10,15 +10,33 @@
     margin-bottom: 10px; /* Adjust this value to control the vertical distance */
 }
 
+.portfolio-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%; /* Adjust the width as needed */
+}
+
 .portfolio {
     width: 60%;
     position: relative;
+    text-align: left; /* Ensure text is aligned to the left */
+}
+
+.portfolio_content_container {
+    display: block;
+}
+
+.portfolio_content {
+    text-align: left; /* Ensure text is aligned to the left */
+}
+
+.image-container {
+    flex-shrink: 0;
 }
 
 .profile-image {
-    position: absolute;
-    top: 0;
-    right: -150px; /* Adjust this value to control the horizontal position */
-    width: 150px; /* Adjust this value to control the image size */
+    width: 300px; /* Adjust this value to control the image size */
     height: auto;
+    margin-left: 20px; /* Adjust the margin to control spacing around the image */
 }
