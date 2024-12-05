@@ -3,3 +3,25 @@ a.normalText {
     text-decoration: none;
     font-weight: normal;
 }
+
+details {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #00313f; /* Slightly lighter blue background */
+}
+
+summary {
+    font-weight: bold;
+    background-color: #005f73; /* Different shade for summary */
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+
+details div {
+    margin-top: 10px;
+    background-color: #005f73; /* Different shade for div */
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
