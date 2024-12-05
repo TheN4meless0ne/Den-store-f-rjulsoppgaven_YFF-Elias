@@ -17,11 +17,3 @@ summary {
     border-radius: 5px;
     color: white;
 }
-
-details div {
-    margin-top: 10px;
-    background-color: #005f73; /* Different shade for div */
-    padding: 10px;
-    border-radius: 5px;
-    color: white;
-}
