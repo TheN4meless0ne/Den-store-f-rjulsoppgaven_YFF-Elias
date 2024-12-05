@@ -48,10 +48,24 @@
                     {% endfor %}
                     <hr>
                     <h4>Prosjekter</h4>
-                    <!-- make project for loop -->
+                    {% for project in info.projects %}
+                        <div class="project_item">
+                            <p class="bold-text no-margin">{{ project.title }}</p>
+                            <p class="no-margin">{{ project.description }}</p>
+                        </div>
+                    {% endfor %}
                      <hr>
                      <h4>Ferdigheter</h4>
-                    <!-- make skills for loop -->
+                     {% for category, skills in info.skills | groupby('category') %}
+                        <div class="skills_category">
+                            <h5>{{ category }}</h5>
+                            <ul>
+                                {% for skill in skills %}
+                                    <li>{{ skill.list }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="portfolio_footer">
