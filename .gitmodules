@@ -1,4 +1,4 @@
 [submodule "infomodule"]
 	path = infomodule
 	url = https://github.com/TheN4meless0ne/infomodule
-    ignore = all
+    ignore = dirty
