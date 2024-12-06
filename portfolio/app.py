@@ -42,4 +42,4 @@ def serve_image(filename):
     return send_from_directory('../infomodule/images', filename)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(host='0.0.0.0')
