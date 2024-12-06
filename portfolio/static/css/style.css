@@ -4,6 +4,12 @@ a.normalText {
     font-weight: normal;
 }
 
+.index {
+    width: 60%;
+    position: relative;
+    text-align: left; /* Ensure text is aligned to the left */
+}
+
 details {
     padding: 10px;
     border-radius: 5px;
@@ -16,4 +22,20 @@ summary {
     padding: 5px;
     border-radius: 5px;
     color: white;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-date {
+    margin-left: auto;
+    padding-left: 10px;
 }
