@@ -10,7 +10,9 @@ app.secret_key = os.getenv('SECRET_KEY')
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    with open('../infomodule/data/info.json', encoding='utf-8') as f:
+        info_data = json.load(f)
+    return render_template('index.html', info=info_data['myInfo'])
 
 @app.route('/portfolio')
 def portfolio():
