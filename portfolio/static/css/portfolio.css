@@ -36,7 +36,25 @@
 }
 
 .profile-image {
-    width: 300px; /* Adjust this value to control the image size */
+    width: 400px; /* Adjust this value to control the image size */
     height: auto;
     margin-left: 20px; /* Adjust the margin to control spacing around the image */
+    position: absolute;
+    right: -600px; /* Move the image further to the right */
+}
+
+@media (max-width: 768px) {
+    .portfolio {
+        flex-direction: column; /* Stack the content vertically */
+        align-items: center; /* Center the content */
+        width: 100%; /* Reset the width to 100% */
+    }
+
+    .profile-image {
+        width: 300px; /* Adjust this value to control the image size */
+        margin-left: 0; /* Remove the left margin */
+        margin-bottom: 20px; /* Add margin below the image */
+        position: static; /* Reset the position */
+        right: 0; /* Reset the right property */
+    }
 }
