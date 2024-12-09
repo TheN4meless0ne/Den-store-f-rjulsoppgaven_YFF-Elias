@@ -24,6 +24,11 @@
                     </span>
                 </h5>
             </div>
+            {% if imageInfo.showImage %}
+                <div class="image-container">
+                    <img src="{{ url_for('serve_image', filename=imageInfo.filename) }}" alt="{{ imageInfo.alt }}" class="profile-image large-right">
+                </div>
+            {% endif %}
             <hr>
             <div class="portfolio_content_container">
                 <div class="portfolio_content">
@@ -85,10 +90,5 @@
                 </h6>
             </div>
         </div>
-        {% if imageInfo.showImage %}
-            <div class="image-container">
-                <img src="{{ url_for('serve_image', filename=imageInfo.filename) }}" alt="{{ imageInfo.alt }}" class="profile-image large-right">
-            </div>
-        {% endif %}
     </div>
 {% endblock content %}
