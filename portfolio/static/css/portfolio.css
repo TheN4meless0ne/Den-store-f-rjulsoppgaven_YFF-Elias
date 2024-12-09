@@ -40,7 +40,7 @@
     height: auto;
     margin-left: 20px; /* Adjust the margin to control spacing around the image */
     position: absolute;
-    right: 300px; /* Move the image further to the right */
+    right: -600px; /* Move the image further to the right */
 }
 
 @media (max-width: 768px) {
