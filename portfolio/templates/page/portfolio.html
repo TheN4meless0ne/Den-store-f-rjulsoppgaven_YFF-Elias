@@ -1,9 +1,9 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="portfolio-container">
+    <div class="container">
         <div class="portfolio">
-            <div class="portfolio_header">
+            <div class="page_header">
                 <h1>{{ info.name | e }}</h1>
                 <h5>
                     <span>
@@ -26,12 +26,12 @@
             </div>
             {% if imageInfo.showImage %}
                 <div class="image-container">
-                    <img src="{{ url_for('serve_image', filename=imageInfo.filename) }}" alt="{{ imageInfo.alt }}" class="profile-image large-right">
+                    <img src="{{ url_for('serve_image', filename=imageInfo.filename) }}" alt="{{ imageInfo.alt }}" class="image large-right">
                 </div>
             {% endif %}
             <hr>
-            <div class="portfolio_content_container">
-                <div class="portfolio_content">
+            <div class="page_content_container">
+                <div class="page_content">
                     <p>{{ info.profile | replace('\n', '<br>') | safe }}</p>
                     <hr>
                     <h4>Utdanning</h4>

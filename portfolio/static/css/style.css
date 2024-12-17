@@ -1,41 +1,13 @@
-a.normalText {
-    color: inherit;
-    text-decoration: none;
-    font-weight: normal;
-}
-
 .index {
     width: 60%;
     position: relative;
     text-align: left; /* Ensure text is aligned to the left */
 }
 
-details {
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #00313f; /* Slightly lighter blue background */
-}
-
-summary {
-    font-weight: bold;
-    background-color: #005f73; /* Different shade for summary */
-    padding: 5px;
-    border-radius: 5px;
-    color: white;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.project-date {
-    margin-left: auto;
-    padding-left: 10px;
+@media (max-width: 768px) {
+    .index {
+        flex-direction: column; /* Stack the content vertically */
+        align-items: center; /* Center the content */
+        width: 100%; /* Reset the width to 100% */
+    }
 }

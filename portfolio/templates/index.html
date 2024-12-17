@@ -1,24 +1,36 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="index">
-        <h1>{{ info.name }}</h1>
-        <hr>
-        <p>This is temporary text, because I do not know what to put here</p>
-        <hr>
-        <details>
-            <summary>Tidligere Prosjekter</summary>
-            <ul>
-                <li>
-                    <a href="https://github.com/TheN4meless0ne/burger-website" class="normalText">Bedriftsprosjekt 2IT</a>
-                    <span class="project-date">November 2024</span>
-                </li>
-                <li>
-                    <a href="https://https://github.com/TheN4meless0ne/NoPaywallinator" class="normalText">Browser Extension som automatisk fjerner blur effekt på nettsider</a>
-                    <span class="project-date">November 2024</span>
-                </li>
-                <!-- Continue as needed -->
-            </ul>
-        </details>
+    <div class="container">
+        <div class="index">
+            <div class="page_header">
+                <h1>{{ info.name }}</h1>
+            </div>
+            <hr>
+            <div class="page_content_container">
+                <div class="page_content">
+                    <p>This is temporary text, because I do not know what to put here</p>
+                    <hr>
+                    <details>
+                        <summary>Tidligere Prosjekter</summary>
+                        <ul>
+                            <li>
+                                <a href="https://github.com/TheN4meless0ne/burger-website" class="normalText">Bedriftsprosjekt 2IT</a>
+                                <span class="project-date">November 2024</span>
+                            </li>
+                            <li>
+                                <a href="https://https://github.com/TheN4meless0ne/NoPaywallinator" class="normalText">Browser Extension som automatisk fjerner blur effekt på nettsider</a>
+                                <span class="project-date">November 2024</span>
+                            </li>
+                            <li>
+                                <a href="https://github.com/TheN4meless0ne/Minecraft-Docker" class="normalText">Minecraft server i Docker</a>
+                                <span class="project-date">December 2024</span>
+                            </li>
+                            <!-- Continue as needed -->
+                        </ul>
+                    </details>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock content %}

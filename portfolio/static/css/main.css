@@ -82,3 +82,88 @@ font-size: 2.5rem;
 .larger_text {
 font-size: 1.2rem;
 }
+
+a.normalText {
+    color: inherit;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.container {
+    display: absolute;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%; /* Adjust the width as needed */
+}
+
+.page_header {
+    /* Add styles for the container header */
+}
+
+.page_content_container {
+    display: block;
+}
+
+.page_content {
+    text-align: left;
+}
+
+details {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #00313f; /* Slightly lighter blue background */
+}
+
+summary {
+    font-weight: bold;
+    background-color: #005f73; /* Different shade for summary */
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-date {
+    margin-left: auto;
+    padding-left: 10px;
+}
+
+.image-container {
+    flex-shrink: 0;
+}
+
+.image {
+    width: 400px; /* Adjust this value to control the image size */
+    height: auto;
+    margin-left: 20px; /* Adjust the margin to control spacing around the image */
+    position: absolute;
+    right: -600px; /* Move the image further to the right */
+}
+
+@media (max-width: 768px) {
+    .image {
+        width: 300px; /* Adjust this value to control the image size */
+        margin-left: 0; /* Remove the left margin */
+        margin-bottom: 20px; /* Add margin below the image */
+        position: static; /* Reset the position */
+        right: 0; /* Reset the right property */
+    }
+}
