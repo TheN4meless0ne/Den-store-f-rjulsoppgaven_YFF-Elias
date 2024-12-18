@@ -38,7 +38,7 @@ Once the application is launced, you should get a message looking like this one.
 WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
- * Running on http://redacted:5000
+ * Running on http://yourip:5000
 Press CTRL+C to quit
 ```
 
