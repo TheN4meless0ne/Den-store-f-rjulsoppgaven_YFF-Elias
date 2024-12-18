@@ -83,10 +83,9 @@ font-size: 2.5rem;
 font-size: 1.2rem;
 }
 
-a.normalText {
+a.normal-text {
     color: inherit;
     text-decoration: none;
-    font-weight: normal;
 }
 
 .bold-text {
@@ -95,13 +94,6 @@ a.normalText {
 
 .no-margin {
     margin: 0;
-}
-
-.container {
-    display: absolute;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 80%; /* Adjust the width as needed */
 }
 
 .page_header {
@@ -150,20 +142,65 @@ li {
     flex-shrink: 0;
 }
 
+.container {
+    display: flex;
+    justify-content: flex-start; /* Align content to the left */
+    align-items: flex-start;
+    width: 80%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the container */
+    padding-right: 15px; /* Add padding to prevent content from being hidden */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+@media (max-width: 1280px) {
+    .container {
+        width: 90%; /* Adjust the width to be closer to full size */
+        margin: 0 auto; /* Center the container */
+        padding-right: 10px; /* Adjust padding */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%; /* Reset the width to 100% */
+        margin: 0; /* Remove the auto margin */
+        padding-right: 0; /* Remove padding on smaller screens */
+    }
+}
+
+@media (max-width: 430px) {
+    .container {
+        justify-content: center; /* Ensure content is centered */
+        padding: 0 10px; /* Add some padding to the sides */
+    }
+}
+
 .image {
-    width: 400px; /* Adjust this value to control the image size */
+    width: auto; /* Default width for larger screens */
+    max-width: 100%; /* Ensure the image does not exceed the container width */
     height: auto;
     margin-left: 20px; /* Adjust the margin to control spacing around the image */
     position: absolute;
     right: -600px; /* Move the image further to the right */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1280px) {
     .image {
-        width: 300px; /* Adjust this value to control the image size */
-        margin-left: 0; /* Remove the left margin */
+        width: 50%; /* Default width for larger screens */
+        height: auto;
+        margin-left: 20px; /* Adjust the margin to control spacing around the image */
+        position: absolute;
+        right: -350px; /* Move the image further to the right */
+    }
+}
+
+@media (max-width: 991px) {
+    .image {
+        width: 75%; /* Set the image width to 50% of the container */
+        max-width: 100%; /* Ensure the image does not exceed the container width */
+        margin: 0 auto; /* Center the image */
         margin-bottom: 20px; /* Add margin below the image */
-        position: static; /* Reset the position */
-        right: 0; /* Reset the right property */
+        position: relative; /* Change position to relative to ensure visibility */
+        right: auto; /* Reset right property */
     }
 }
