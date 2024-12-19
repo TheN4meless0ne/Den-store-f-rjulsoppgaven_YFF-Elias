@@ -10,17 +10,19 @@ app.secret_key = os.getenv('SECRET_KEY')
 
 @app.route('/')
 def index():
-    with open('../infomodule/data/info.json', encoding='utf-8') as f:
-        info_data = json.load(f)
-    return render_template('index.html', info=info_data['myInfo'])
+    with open('../infomodule/data/dataportfolio.json', encoding='utf-8') as f:
+        portfolio_data = json.load(f)
+    with open('../infomodule/data/dataindex.json', encoding='utf-8') as f:
+        index_data = json.load(f)
+    return render_template('index.html', portfolioInfo=portfolio_data['portfolioInfo'], indexInfo=index_data['indexInfo'])
 
 @app.route('/portfolio')
 def portfolio():
-    with open('../infomodule/data/info.json', encoding='utf-8') as f:
-        info_data = json.load(f)
+    with open('../infomodule/data/dataportfolio.json', encoding='utf-8') as f:
+        portfolio_data = json.load(f)
     with open('../infomodule/data/image.json', encoding='utf-8') as f:
         image_data = json.load(f)
-    return render_template('page/portfolio.html', info=info_data['myInfo'], imageInfo=image_data['imageInfo'])
+    return render_template('page/portfolio.html', portfolioInfo=portfolio_data['portfolioInfo'], imageInfo=image_data['imageInfo'])
 
 @app.route('/cv')
 def cv():
