@@ -20,17 +20,17 @@
                 <h5>
                     <span>
                         <span>Github:</span>
-                        <a href="https://github.com/TheN4meless0ne" class="normal-text">TheN4meless0ne</a>
+                        <a href="https://github.com/TheN4meless0ne" class="normal-text">@TheN4meless0ne</a>
                     </span>
                 </h5>
             </div>
-            {% if imageInfo.showImage %}
-                <div class="image-container">
-                    <img src="{{ url_for('serve_image', filename=imageInfo.filename) }}" alt="{{ imageInfo.alt }}" class="image large-right">
-                </div>
-            {% endif %}
-            <hr>
             <div class="page_content_container">
+                {% if imageInfo.showImage %}
+                    <div class="image-container">
+                        <img src="{{ url_for('serve_image', filename=imageInfo.filename) }}" alt="{{ imageInfo.alt }}" class="image large-right">
+                    </div>
+                {% endif %}
+                <hr>
                 <div class="page_content">
                     <p>{{ info.profile | replace('\n', '<br>') | safe }}</p>
                     <hr>
