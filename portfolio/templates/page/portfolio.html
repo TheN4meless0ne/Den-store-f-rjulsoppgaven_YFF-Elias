@@ -1,41 +1,41 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="portfolio-container">
+    <div class="container">
         <div class="portfolio">
-            <div class="portfolio_header">
-                <h1>{{ info.name | e }}</h1>
+            <div class="page_header">
+                <h1>{{ portfolioInfo.name | e }}</h1>
                 <h5>
                     <span>
                         <span>Telefon:</span>
-                        <a href="tel:{{ info.phone | e }}" class="normalText">{{ info.phone | e }}</a>
+                        <a href="tel:{{ portfolioInfo.phone | e }}" class="normal-text">{{ portfolioInfo.phone | e }}</a>
                     </span>
                 </h5>
                 <h5>
                     <span>
                         <span>E-post:</span>
-                        <a href="mailto:{{ info.email | e }}" class="normalText">{{ info.email | e }}</a>
+                        <a href="mailto:{{ portfolioInfo.email | e }}" class="normal-text">{{ portfolioInfo.email | e }}</a>
                     </span>
                 </h5>
                 <h5>
                     <span>
                         <span>Github:</span>
-                        <a href="https://github.com/TheN4meless0ne" class="normalText">TheN4meless0ne</a>
+                        <a href="https://github.com/TheN4meless0ne" class="normal-text">@TheN4meless0ne</a>
                     </span>
                 </h5>
             </div>
-            {% if imageInfo.showImage %}
-                <div class="image-container">
-                    <img src="{{ url_for('serve_image', filename=imageInfo.filename) }}" alt="{{ imageInfo.alt }}" class="profile-image large-right">
-                </div>
-            {% endif %}
-            <hr>
-            <div class="portfolio_content_container">
-                <div class="portfolio_content">
-                    <p>{{ info.profile | replace('\n', '<br>') | safe }}</p>
+            <div class="page_content_container">
+                {% if imageInfo.showImage %}
+                    <div class="image-container">
+                        <img src="{{ url_for('serve_image', filename=imageInfo.filename) }}" alt="{{ imageInfo.alt }}" class="image large-right">
+                    </div>
+                {% endif %}
+                <hr>
+                <div class="page_content">
+                    <p>{{ portfolioInfo.profile | replace('\n', '<br>') | safe }}</p>
                     <hr>
                     <h4>Utdanning</h4>
-                    {% for edu in info.education %}
+                    {% for edu in portfolioInfo.education %}
                         <div class="education_item">
                             <p class="bold-text no-margin">{{ edu.school }}</p>
                             <p class="no-margin">{{ edu.year }}</p>
@@ -43,8 +43,8 @@
                         </div>
                     {% endfor %}
                     <hr>
-                    <h4>Arbetslivserfaring</h4>
-                    {% for work in info.workExperience %}
+                    <h4>Arbeidserfaring</h4>
+                    {% for work in portfolioInfo.workExperience %}
                         <div class="work_item">
                             <p class="bold-text no-margin">{{ work.coandposition }}</p>
                             <p class="no-margin">{{ work.start2end }}</p>
@@ -53,7 +53,7 @@
                     {% endfor %}
                     <hr>
                     <h4>Prosjekter</h4>
-                    {% for project in info.projects %}
+                    {% for project in portfolioInfo.projects %}
                         <div class="project_item">
                             <p class="bold-text no-margin">{{ project.title }}</p>
                             <p class="no-margin">{{ project.description }}</p>
@@ -61,7 +61,7 @@
                     {% endfor %}
                      <hr>
                      <h4>Ferdigheter</h4>
-                     {% for skill_category in info.skills %}
+                     {% for skill_category in portfolioInfo.skills %}
                         <details class="skills_category">
                             <summary class="larger_text">{{ skill_category.category }}</summary>
                             <ul>
@@ -79,13 +79,13 @@
                 <h6>
                     <span>
                         <span>Telefon:</span>
-                        <a href="tel:{{ info.phone | e }}" class="normalText">{{ info.phone | e }}</a>
+                        <a href="tel:{{ portfolioInfo.phone | e }}" class="normal-text">{{ portfolioInfo.phone | e }}</a>
                     </span>
                 </h6>
                 <h6>
                     <span>
                         <span>E-post:</span>
-                        <a href="mailto:{{ info.email | e }}" class="normalText">{{ info.email | e }}</a>
+                        <a href="mailto:{{ portfolioInfo.email | e }}" class="normal-text">{{ portfolioInfo.email | e }}</a>
                     </span>
                 </h6>
             </div>
