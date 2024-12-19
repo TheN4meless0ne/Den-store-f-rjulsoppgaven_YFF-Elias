@@ -1,46 +1,11 @@
-.bold-text {
-    font-weight: bold;
-}
-
-.no-margin {
-    margin: 0;
-}
-
-.education_item {
-    margin-bottom: 10px; /* Adjust this value to control the vertical distance */
-}
-
-.portfolio-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 80%; /* Adjust the width as needed */
-}
-
 .portfolio {
-    width: 60%;
+    width: 100%;
     position: relative;
     text-align: left; /* Ensure text is aligned to the left */
 }
 
-.portfolio_content_container {
-    display: block;
-}
-
-.portfolio_content {
-    text-align: left; /* Ensure text is aligned to the left */
-}
-
-.image-container {
-    flex-shrink: 0;
-}
-
-.profile-image {
-    width: 400px; /* Adjust this value to control the image size */
-    height: auto;
-    margin-left: 20px; /* Adjust the margin to control spacing around the image */
-    position: absolute;
-    right: -600px; /* Move the image further to the right */
+.education_item {
+    margin-bottom: 10px; /* Adjust this value to control the vertical distance */
 }
 
 @media (max-width: 768px) {
@@ -48,13 +13,5 @@
         flex-direction: column; /* Stack the content vertically */
         align-items: center; /* Center the content */
         width: 100%; /* Reset the width to 100% */
-    }
-
-    .profile-image {
-        width: 300px; /* Adjust this value to control the image size */
-        margin-left: 0; /* Remove the left margin */
-        margin-bottom: 20px; /* Add margin below the image */
-        position: static; /* Reset the position */
-        right: 0; /* Reset the right property */
     }
 }
