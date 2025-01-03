@@ -5,18 +5,14 @@
         <div class="portfolio">
             <div class="page_header">
                 <h1>{{ portfolioInfo.name | e }}</h1>
-                <h5>
-                    <span>
-                        <span>Telefon:</span>
-                        <a href="tel:{{ portfolioInfo.phone | e }}" class="normal-text">{{ portfolioInfo.phone | e }}</a>
-                    </span>
-                </h5>
-                <h5>
-                    <span>
-                        <span>E-post:</span>
-                        <a href="mailto:{{ portfolioInfo.email | e }}" class="normal-text">{{ portfolioInfo.email | e }}</a>
-                    </span>
-                </h5>
+                {% for contactInfo in portfolioInfo.contact %}
+                    <h5>
+                        <span>
+                            <span>{{ contactInfo.header }}:</span>
+                            <a href="{{contactInfo.type}}:{{ contactInfo.info }}" class="normal-text">{{ contactInfo.info }}</a>
+                        </span>
+                    </h5>
+                {% endfor %}
                 <h5>
                     <span>
                         <span>Github:</span>
@@ -76,18 +72,14 @@
             <hr>
             <div class="portfolio_footer">
                 <h5>Kontaktinformasjon</h5>
-                <h6>
-                    <span>
-                        <span>Telefon:</span>
-                        <a href="tel:{{ portfolioInfo.phone | e }}" class="normal-text">{{ portfolioInfo.phone | e }}</a>
-                    </span>
-                </h6>
-                <h6>
-                    <span>
-                        <span>E-post:</span>
-                        <a href="mailto:{{ portfolioInfo.email | e }}" class="normal-text">{{ portfolioInfo.email | e }}</a>
-                    </span>
-                </h6>
+                {% for contactInfo in portfolioInfo.contact %}
+                    <h6>
+                        <span>
+                            <span>{{ contactInfo.header }}:</span>
+                            <a href="{{contactInfo.type}}:{{ contactInfo.info }}" class="normal-text">{{ contactInfo.info }}</a>
+                        </span>
+                    </h6>
+                {% endfor %}
             </div>
         </div>
     </div>
