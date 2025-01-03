@@ -1,0 +1,12 @@
+/* 404 Page CSS (Does not work) */
+.container .center-error {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0 !important; /* Ensure no margin is applied */
+    padding: 0 !important; /* Ensure no padding is applied */
+}
