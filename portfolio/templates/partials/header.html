@@ -14,15 +14,16 @@
                 <!-- Continue as needed -->
             </div>
         </div>
-        <div class="dropdown ml-auto">
-            <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="themesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="alert('Denne knappen er ikke operativ ennå.')">
-                Tema
-            </button>
-        </div>
-        <div class="dropdown ml-auto">
+        <div class="dropdown ms-auto me-2">
             <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="alert('Denne knappen er ikke operativ ennå.')">
                 Språk
             </button>
         </div>
+        <form class="d-flex my-2 my-lg-0" onsubmit="alert('Søkefunksjonen er fortsatt under arbeid.'); return false;">
+            <input class="form-control form-control-sm me-2" type="search" placeholder="Search" aria-label="Søk">
+            <button class="btn btn-outline-success btn-sm" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
     </div>
 </nav>
