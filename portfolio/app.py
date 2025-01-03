@@ -10,30 +10,30 @@ app.secret_key = os.getenv('SECRET_KEY')
 
 @app.route('/')
 def index():
-    with open('../infomodule/data/dataportfolio.json', encoding='utf-8') as f:
+    with open('../infomodule/dataNO/dataportfolio.json', encoding='utf-8') as f:
         portfolio_data = json.load(f)
-    with open('../infomodule/data/dataindex.json', encoding='utf-8') as f:
+    with open('../infomodule/dataNO/dataindex.json', encoding='utf-8') as f:
         index_data = json.load(f)
     return render_template('index.html', portfolioInfo=portfolio_data['portfolioInfo'], indexInfo=index_data['indexInfo'])
 
 @app.route('/portfolio')
 def portfolio():
-    with open('../infomodule/data/dataportfolio.json', encoding='utf-8') as f:
+    with open('../infomodule/dataNO/dataportfolio.json', encoding='utf-8') as f:
         portfolio_data = json.load(f)
-    with open('../infomodule/data/image.json', encoding='utf-8') as f:
+    with open('../infomodule/dataNO/image.json', encoding='utf-8') as f:
         image_data = json.load(f)
     return render_template('page/portfolio.html', portfolioInfo=portfolio_data['portfolioInfo'], imageInfo=image_data['imageInfo'])
 
 @app.route('/cv')
 def cv():
-    with open('../infomodule/data/pdf.json') as f:
+    with open('../infomodule/dataNO/pdf.json') as f:
         pdf_data = json.load(f)
     cv_pdf = next((pdf for pdf in pdf_data['pdfFiles'] if pdf['title'] == 'CV'), None)
     return render_template('page/cv.html', cv_pdf=cv_pdf)
 
 @app.route('/files')
 def downloads():
-    with open('../infomodule/data/pdf.json') as f:
+    with open('../infomodule/dataNO/pdf.json') as f:
         pdf_data = json.load(f)
     return render_template('page/files.html', pdfs=pdf_data['pdfFiles'])
 
