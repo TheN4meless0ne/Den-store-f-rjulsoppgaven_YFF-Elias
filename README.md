@@ -18,6 +18,12 @@ pip install -r requirements.txt
 ```
 
 #### Step 3
+We want to make sure our submodule is up to date before starting the Flask app, we can do this from our terminal.
+``` Shell
+git submodule update --remote infomodule
+```
+
+#### Step 4
 Now it is time to start the Flask app.
 
 To do this we first need to enter the folder where the file `app.py` is located. In this project it is called `portfolio`.
@@ -30,7 +36,7 @@ Once we're in the folder, we are able to run `app.py` through our terminal which
 python app.py
 ```
 
-#### Step 4
+#### Step 5
 Once the application is launced, you should get a message looking like this one.
 ``` Output
  * Serving Flask app 'app'
