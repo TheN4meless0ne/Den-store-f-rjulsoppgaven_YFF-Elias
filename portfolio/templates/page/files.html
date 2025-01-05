@@ -1,12 +1,14 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h1>Filer</h1>
-    <br>
-    {% for pdf in pdfs %}
-        <h4>{{ pdf.title }}</h4>
-        <a href="{{ url_for('download_file', filename=pdf.filename) }}" class="btn btn-primary" download>Last ned {{ pdf.title }}</a>
+    <div class="col-md-8">
+        <h1>Filer</h1>
         <br>
-        <br>
-    {% endfor %}
+        {% for pdf in pdfs %}
+            <h4>{{ pdf.title }}</h4>
+            <a href="{{ url_for('download_file', filename=pdf.filename) }}" class="btn btn-primary" download>Last ned {{ pdf.title }}</a>
+            <br>
+            <br>
+        {% endfor %}
+    </div>
 {% endblock content %}

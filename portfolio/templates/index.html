@@ -1,35 +1,37 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="container">
-        <div class="index">
-            <div class="page_header">
-                <h1>{{ portfolioInfo.name }}</h1>
-            </div>
-            <div class="content-wrapper">
-                <div class="page_content">
-                    <hr>
-                    <h2>Om meg</h2>
-                    <p>{{ indexInfo.about }}</p>
-                    <hr>
-                    <details>
-                        <summary>Tidligere Prosjekter</summary>
-                        <ul>
-                            <li>
-                                <a href="https://github.com/TheN4meless0ne/burger-website" class="normal-text">Bedriftsprosjekt 2IT</a>
-                                <span class="project-date">November 2024</span>
-                            </li>
-                            <li>
-                                <a href="https://github.com/TheN4meless0ne/NoPaywallinator" class="normal-text">Browser Extension som automatisk fjerner blur effekt på nettsider</a>
-                                <span class="project-date">November 2024</span>
-                            </li>
-                            <li>
-                                <a href="https://github.com/TheN4meless0ne/Minecraft-Docker" class="normal-text">Minecraft server i Docker</a>
-                                <span class="project-date">December 2024</span>
-                            </li>
-                        </ul>
-                    </details>
-                    <hr>
+    <div class="col-md-8">
+        <div class="container">
+            <div class="index">
+                <div class="page_header">
+                    <h1>{{ portfolioInfo.name }}</h1>
+                </div>
+                <div class="content-wrapper">
+                    <div class="page_content">
+                        <hr>
+                        <h2>Om meg</h2>
+                        <p>{{ indexInfo.about }}</p>
+                        <hr>
+                        <details>
+                            <summary>Tidligere Prosjekter</summary>
+                            <ul>
+                                <li>
+                                    <a href="https://github.com/TheN4meless0ne/burger-website" class="normal-text">Bedriftsprosjekt 2IT</a>
+                                    <span class="project-date">November 2024</span>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/TheN4meless0ne/NoPaywallinator" class="normal-text">Browser Extension som automatisk fjerner blur effekt på nettsider</a>
+                                    <span class="project-date">November 2024</span>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/TheN4meless0ne/Minecraft-Docker" class="normal-text">Minecraft server i Docker</a>
+                                    <span class="project-date">December 2024</span>
+                                </li>
+                            </ul>
+                        </details>
+                        <hr>
+                    </div>
                 </div>
             </div>
         </div>
