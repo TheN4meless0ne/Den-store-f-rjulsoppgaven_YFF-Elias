@@ -17,9 +17,11 @@
 
                 {% block content %} {% endblock content %}
             
-                {% block sidebar %}
-                    {% include "partials/sidebar.html" %}
-                {% endblock sidebar %}
+                {% if show_sidebar is not defined or show_sidebar %}
+                    {% block sidebar %}
+                        {% include "partials/sidebar.html" %}
+                    {% endblock sidebar %}
+                {% endif %}
             </div>
         </main>
 

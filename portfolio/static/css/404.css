@@ -7,6 +7,5 @@
     align-items: center;
     text-align: center;
     font-family: Arial, sans-serif;
-    margin: 0 !important; /* Ensure no margin is applied */
-    padding: 0 !important; /* Ensure no padding is applied */
+    margin-top: -75px;
 }

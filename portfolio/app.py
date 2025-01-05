@@ -38,13 +38,13 @@ def cv():
     language = session.get('language', 'NO')
     _, _, _, pdf_data, translations = load_data(language)
     cv_pdf = next((pdf for pdf in pdf_data['pdfFiles'] if pdf['title'] == 'CV'), None)
-    return render_template('page/cv.html', cv_pdf=cv_pdf, translations=translations)
+    return render_template('page/cv.html', cv_pdf=cv_pdf, translations=translations, show_sidebar=False)
 
 @app.route('/files')
 def downloads():
     language = session.get('language', 'NO')
     _, _, _, pdf_data, translations = load_data(language)
-    return render_template('page/files.html', pdfs=pdf_data['pdfFiles'], translations=translations)
+    return render_template('page/files.html', pdfs=pdf_data['pdfFiles'], translations=translations, show_sidebar=False)
 
 @app.route('/download/<filename>')
 def download_file(filename):
@@ -58,3 +58,9 @@ def serve_image(filename):
 def set_language(language):
     session['language'] = language
     return redirect(request.referrer or url_for('index'))
+
+@app.errorhandler(404)
+def page_not_found(e):
+    language = session.get('language', 'NO')
+    _, _, _, _, translations = load_data(language)
+    return render_template('404.html', translations=translations, show_sidebar=False), 404
