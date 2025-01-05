@@ -79,3 +79,7 @@ img {
     max-width: 35%;
     height: auto;
 }
+
+main {
+    margin-top: 75px; /* Adjust this value to move the content down */
+}

@@ -3,12 +3,13 @@ WORKDIR /app
 
 COPY . .
 
-RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
-RUN git submodule update --init --recursive
+COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-ENV FLASK_APP=portfolio.app
+COPY infomodule /app/infomodule
+
+ENV FLASK_APP=portfolio/app.py
 
 EXPOSE 5000
 
