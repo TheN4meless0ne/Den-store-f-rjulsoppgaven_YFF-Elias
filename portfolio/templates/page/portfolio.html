@@ -10,7 +10,7 @@
                         <h5>
                             <span>
                                 <span>{{ contactInfo.header }}:</span>
-                                <a href="{{contactInfo.type}}:{{ contactInfo.info }}" class="normal-text">{{ contactInfo.info }}</a>
+                                <a href="{{contactInfo.type}}:{{ contactInfo.content }}" class="normal-text">{{ contactInfo.content }}</a>
                             </span>
                         </h5>
                     {% endfor %}
@@ -31,7 +31,7 @@
                     <div class="page_content">
                         <p>{{ portfolioInfo.profile | replace('\n', '<br>') | safe }}</p>
                         <hr>
-                        <h4>Utdanning</h4>
+                        <h4>{{ portfolioInfo.educationHeader }}</h4>
                         {% for edu in portfolioInfo.education %}
                             <div class="education_item">
                                 <p class="bold-text no-margin">{{ edu.school }}</p>
@@ -40,7 +40,7 @@
                             </div>
                         {% endfor %}
                         <hr>
-                        <h4>Arbeidserfaring</h4>
+                        <h4>{{ portfolioInfo.workExperienceHeader }}</h4>
                         {% for work in portfolioInfo.workExperience %}
                             <div class="work_item">
                                 <p class="bold-text no-margin">{{ work.coandposition }}</p>
@@ -49,7 +49,7 @@
                             </div>
                         {% endfor %}
                         <hr>
-                        <h4>Prosjekter</h4>
+                        <h4>{{ portfolioInfo.projectsHeader }}</h4>
                         {% for project in portfolioInfo.projects %}
                             <div class="project_item">
                                 <p class="bold-text no-margin">{{ project.title }}</p>
@@ -57,7 +57,7 @@
                             </div>
                         {% endfor %}
                         <hr>
-                        <h4>Ferdigheter</h4>
+                        <h4>{{ portfolioInfo.skillsHeader }}</h4>
                         {% for skill_category in portfolioInfo.skills %}
                             <details class="skills_category">
                                 <summary class="larger_text">{{ skill_category.category }}</summary>
@@ -72,12 +72,12 @@
                 </div>
                 <hr>
                 <div class="portfolio_footer">
-                    <h5>Kontaktinformasjon</h5>
+                    <h5>{{ portfolioInfo.contactHeader }}</h5>
                     {% for contactInfo in portfolioInfo.contact %}
                         <h6>
                             <span>
                                 <span>{{ contactInfo.header }}:</span>
-                                <a href="{{contactInfo.type}}:{{ contactInfo.info }}" class="normal-text">{{ contactInfo.info }}</a>
+                                <a href="{{contactInfo.type}}:{{ contactInfo.content }}" class="normal-text">{{ contactInfo.content }}</a>
                             </span>
                         </h6>
                     {% endfor %}
