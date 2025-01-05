@@ -14,7 +14,4 @@
         align-items: center; /* Center the content */
         width: 100%; /* Reset the width to 100% */
     }
-    main {
-        margin-top: 115px; /* Adjust this value to move the content down */
-    }
 }

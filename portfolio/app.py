@@ -1,11 +1,7 @@
 from flask import Flask, render_template, send_from_directory, json, request
 import os
-from dotenv import load_dotenv
 
-app = Flask(__name__)
-
-load_dotenv()
-app.secret_key = os.getenv('SECRET_KEY')
+app = Flask(__name__, template_folder='templates', static_folder='static')
 
 @app.route('/')
 def index():
@@ -47,6 +43,3 @@ def serve_image(filename):
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
-
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')

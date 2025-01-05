@@ -83,3 +83,9 @@ img {
 main {
     margin-top: 75px; /* Adjust this value to move the content down */
 }
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 115px; /* Adjust this value to move the content down */
+    }
+}

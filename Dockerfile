@@ -9,7 +9,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY infomodule /app/infomodule
 
-ENV FLASK_APP=portfolio/app.py
+ENV FLASK_APP=run.py
 
 EXPOSE 5000
 
