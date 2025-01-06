@@ -1,40 +1,40 @@
+# Use a base Python image
 FROM python:3.12-slim
 
-# Install necessary dependencies: Git and SSH client
+# Install git and openssh-client
 RUN apt-get update && apt-get install -y git openssh-client
 
-# Set the working directory for your application
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the SSH private key into the container (Ensure it's securely passed)
-# This is only necessary if you're copying it directly into the build context.
-# In case of using a volume mount, this line can be skipped.
+# Copy the private SSH key to the container
+# Make sure to add the id_rsa file in the same directory as the Dockerfile
 COPY id_rsa /root/.ssh/id_rsa
 
-# Set appropriate permissions on the SSH private key
+# Set proper permissions for the SSH private key
 RUN chmod 600 /root/.ssh/id_rsa
 
-# Disable strict host key checking for GitHub
-RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
+# Configure SSH to prevent known host verification (optional, you can adjust this depending on your security needs)
+RUN touch /root/.ssh/known_hosts && ssh-keyscan github.com >> /root/.ssh/known_hosts
 
-# Clone the main repository with its submodules using SSH for authentication
-RUN git clone --recurse-submodules git@github.com:TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias.git .
+# Clone the repository including submodules
+RUN git clone --recurse-submodules https://github.com/TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias .
 
-# Update submodules if necessary
+# Update the submodules after cloning
 RUN git submodule update --init --recursive
 
-# Copy the rest of the application files into the container
+# Copy the rest of the application files
 COPY . .
 
-# Copy the requirements file and install dependencies
+# Install dependencies from requirements.txt
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Set the Flask app environment variable
+# Set the FLASK_APP environment variable
 ENV FLASK_APP=run.py
 
-# Expose the application port
+# Expose port 5000 for the Flask app
 EXPOSE 5000
 
-# Start the Flask app when the container runs
+# Run the Flask app
 CMD ["flask", "run", "--host=0.0.0.0"]
