@@ -22,6 +22,9 @@ RUN --mount=type=ssh git clone --recurse-submodules git@github.com:TheN4meless0n
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy the .env file containing the secret key
+COPY .env .env
+
 # Set FLASK_APP environment variable to your main application file
 # Change "app.py" to whatever your Flask app's entry point is
 ENV FLASK_APP=run.py
