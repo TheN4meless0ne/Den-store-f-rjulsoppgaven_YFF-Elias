@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1.4
 FROM python:3.12-slim
 
 # Install necessary packages
@@ -6,25 +7,16 @@ RUN apt-get update && apt-get install -y git openssh-client curl
 # Set the working directory
 WORKDIR /app
 
-# Test connectivity to GitHub
-RUN curl -I https://github.com
+# Configure SSH for GitHub
+RUN mkdir -p /root/.ssh && chmod 700 /root/.ssh && \
+    echo "Host github.com\n\tStrictHostKeyChecking no\n" > /root/.ssh/config
 
-# Ensure SSH directory exists and set permissions
-RUN mkdir -p /root/.ssh && chmod 700 /root/.ssh
-
-# Run ssh-keyscan with debug output to get more information about what's going wrong
-RUN touch /root/.ssh/known_hosts || echo "Known hosts file already exists." \
-    && ssh-keyscan -v github.com >> /root/.ssh/known_hosts \
-    && chmod 644 /root/.ssh/known_hosts || echo "Failed to run ssh-keyscan"
-
-# Copy the id_rsa file
+# Copy the private SSH key
 COPY id_rsa /root/.ssh/id_rsa
-
-# Set correct permissions for the private key
 RUN chmod 600 /root/.ssh/id_rsa
 
-# Run the rest of the Dockerfile steps (e.g., clone repo)
-RUN git clone --recurse-submodules https://github.com/TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias .
+# Clone the repository and initialize submodules
+RUN --mount=type=ssh git clone --recurse-submodules git@github.com:TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias .
 
 # Install dependencies
 COPY requirements.txt .
