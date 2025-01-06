@@ -3,3 +3,7 @@ services:
     build: .
     ports:
       - "5000:5000"
+    volumes:
+      - ./id_rsa:/root/.ssh/id_rsa
+    environment:
+      - GIT_SSH_COMMAND=ssh -i /root/.ssh/id_rsa

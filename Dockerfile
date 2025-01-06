@@ -1,20 +1,23 @@
 FROM python:3.12-slim
 
-# Install necessary dependencies, including Git and SSH client
+# Install necessary dependencies: Git and SSH client
 RUN apt-get update && apt-get install -y git openssh-client
 
-# Add the SSH key for GitHub access (Use Docker secrets or bind mount for security)
-# Here we assume the private key is added securely to the build context, such as via Docker secrets or volumes.
+# Set the working directory for your application
+WORKDIR /app
+
+# Copy the SSH private key into the container (Ensure it's securely passed)
+# This is only necessary if you're copying it directly into the build context.
+# In case of using a volume mount, this line can be skipped.
 COPY id_rsa /root/.ssh/id_rsa
+
+# Set appropriate permissions on the SSH private key
 RUN chmod 600 /root/.ssh/id_rsa
 
 # Disable strict host key checking for GitHub
 RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
 
-# Set the working directory for your application
-WORKDIR /app
-
-# Clone the repository using SSH instead of HTTPS
+# Clone the main repository with its submodules using SSH for authentication
 RUN git clone --recurse-submodules git@github.com:TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias.git .
 
 # Update submodules if necessary
