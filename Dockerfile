@@ -1,10 +1,19 @@
 FROM python:3.12-slim
+
+RUN apt-get update && apt-get install -y git
+
 WORKDIR /app
+
+ENV GIT_USERNAME=${GIT_USERNAME}
+ENV GIT_TOKEN=${GIT_TOKEN}
+
+RUN git clone --recurse-submodules https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias . 
+
+RUN git submodule update --init --recursive
 
 COPY . .
 
 COPY requirements.txt .
-
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY infomodule /app/infomodule
