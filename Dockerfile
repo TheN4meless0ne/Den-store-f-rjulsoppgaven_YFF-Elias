@@ -6,17 +6,17 @@ RUN apt-get update && apt-get install -y git openssh-client curl
 # Set the working directory
 WORKDIR /app
 
-# Ensure SSH directory exists and set permissions
-RUN mkdir -p /root/.ssh && chmod 700 /root/.ssh
-
 # Test connectivity to GitHub
 RUN curl -I https://github.com
 
-# Add GitHub to known_hosts to prevent SSH warnings
-RUN touch /root/.ssh/known_hosts && ssh-keyscan github.com >> /root/.ssh/known_hosts && chmod 644 /root/.ssh/known_hosts
+# Ensure SSH directory exists and set permissions
+RUN mkdir -p /root/.ssh && chmod 700 /root/.ssh
 
-# Alternatively, use this if ssh-keyscan fails intermittently:
-# RUN touch /root/.ssh/known_hosts && ssh-keyscan github.com >> /root/.ssh/known_hosts || true
+# Attempt to add GitHub to known_hosts with verbose output for debugging
+RUN touch /root/.ssh/known_hosts && ssh-keyscan -v github.com >> /root/.ssh/known_hosts && chmod 644 /root/.ssh/known_hosts
+
+# If the above step fails, run this instead:
+# RUN touch /root/.ssh/known_hosts || true
 
 # Copy the id_rsa file
 COPY id_rsa /root/.ssh/id_rsa
