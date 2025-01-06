@@ -1,6 +1,15 @@
 FROM python:3.12-slim
 WORKDIR /app
 
+ENV GIT_USERNAME=${GIT_USERNAME}
+ENV GIT_TOKEN=${GIT_TOKEN}
+
+RUN git config --global url."https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/".insteadOf "https://github.com/"
+
+RUN git clone --recurse-submodules https://github.com/TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias .
+
+RUN git submodule update --init --recursive
+
 COPY . .
 
 COPY requirements.txt .
