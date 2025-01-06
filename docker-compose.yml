@@ -4,6 +4,6 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./id_rsa:/root/.ssh/id_rsa
+      - ./id_rsa:/root/.ssh/id_rsa:ro  # Mount the private key (read-only)
     environment:
-      - GIT_SSH_COMMAND=ssh -i /root/.ssh/id_rsa
+      - GIT_SSH_COMMAND=ssh -i /root/.ssh/id_rsa  # Specify the SSH key for Git
