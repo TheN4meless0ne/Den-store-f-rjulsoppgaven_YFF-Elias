@@ -1,7 +1,7 @@
 body {
 background: #003747;
 color: #dddddd;
-margin-top: 5rem;
+margin-top: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -78,4 +78,14 @@ li {
 img {
     max-width: 35%;
     height: auto;
+}
+
+main {
+    margin-top: 75px; /* Adjust this value to move the content down */
+}
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 115px; /* Adjust this value to move the content down */
+    }
 }

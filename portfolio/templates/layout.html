@@ -14,14 +14,14 @@
         
         <main role="main" class="container">
             <div class="row">
-                <div class="col-md-8">
-                    {% block content %} {% endblock content %}
-                </div>
-                <div class="col-md-4">
+
+                {% block content %} {% endblock content %}
+            
+                {% if show_sidebar is not defined or show_sidebar %}
                     {% block sidebar %}
                         {% include "partials/sidebar.html" %}
                     {% endblock sidebar %}
-                </div>
+                {% endif %}
             </div>
         </main>
 
