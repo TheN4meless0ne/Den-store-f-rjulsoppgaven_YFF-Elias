@@ -8,6 +8,10 @@
     margin-bottom: 10px; /* Adjust this value to control the vertical distance */
 }
 
+.project_item {
+    margin-bottom: 10px; /* Adjust this value to control the vertical distance */
+}
+
 @media (max-width: 768px) {
     .portfolio {
         flex-direction: column; /* Stack the content vertically */

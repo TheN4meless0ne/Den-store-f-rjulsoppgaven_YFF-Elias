@@ -21,6 +21,10 @@
                                 <summary>{{ project.title }}</summary>
                                 <p class="bold-text no-margin">{{ project.started }}</p>
                                 <p>{{ project.description }}</p>
+                                <p>
+                                    <span>Link:</span>
+                                    <a href="{{ project.link }}" class="normal-text bold-text">{{ project.link }}</a>
+                                </p>
                                 {% for languageCategory in project.languages %}
                                     <details>
                                         <summary>{{ languageCategory.category }}</summary>
@@ -31,10 +35,6 @@
                                         </ul>
                                     </details>
                                 {% endfor %}
-                                <p>
-                                    <span>Link:</span>
-                                    <a href="{{ project.link }}" class="normal-text bold-text">{{ project.link }}</a>
-                                </p>
                             </details>
                         {% endfor %}
                         <hr>
