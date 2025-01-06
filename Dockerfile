@@ -1,36 +1,31 @@
 FROM python:3.12-slim
 
-# Install necessary dependencies, including Git
-RUN apt-get update && apt-get install -y git
+# Install necessary dependencies, including Git and SSH client
+RUN apt-get update && apt-get install -y git openssh-client
+
+# Add the SSH key for GitHub access (Use Docker secrets or bind mount for security)
+# Here we assume the private key is added securely to the build context, such as via Docker secrets or volumes.
+COPY id_rsa /root/.ssh/id_rsa
+RUN chmod 600 /root/.ssh/id_rsa
+
+# Disable strict host key checking for GitHub
+RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
 
 # Set the working directory for your application
 WORKDIR /app
 
-# Set environment variables for Git credentials (these will be passed from docker-compose.yml or the environment)
-ENV GIT_USERNAME=${GIT_USERNAME}
-ENV GIT_TOKEN=${GIT_TOKEN}
+# Clone the repository using SSH instead of HTTPS
+RUN git clone --recurse-submodules git@github.com:TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias.git .
 
-# Configure Git to use the credentials for HTTPS authentication globally
-RUN git config --global credential.helper store
-
-# Update Git configuration to use token for all GitHub URLs
-RUN git config --global url."https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/".insteadOf "https://github.com/"
-
-# Clone the main repository and its submodules
-RUN git clone --recurse-submodules https://github.com/TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias .
-
-# Explicitly update submodules if needed
+# Update submodules if necessary
 RUN git submodule update --init --recursive
 
-# Copy application files into the container
+# Copy the rest of the application files into the container
 COPY . .
 
 # Copy the requirements file and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy additional application module
-COPY infomodule /app/infomodule
 
 # Set the Flask app environment variable
 ENV FLASK_APP=run.py
