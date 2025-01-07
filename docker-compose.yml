@@ -1,9 +1,6 @@
 services:
   web:
-    build:
-      context: .
-      ssh: default
-    ports:
-      - "5000:5000"
-    volumes:
-      - /home/username/.ssh:/root/.ssh:ro
+    build: .
+    environment:
+      - GIT_USERNAME=${GIT_USERNAME}
+      - GIT_TOKEN=${GIT_TOKEN}
