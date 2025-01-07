@@ -7,12 +7,10 @@ RUN apt-get update && apt-get install -y git openssh-client curl
 # Set the working directory
 WORKDIR /app
 
-# Configure SSH for GitHub
-RUN mkdir -p /root/.ssh && chmod 700 /root/.ssh && \
-    echo "Host github.com\n\tStrictHostKeyChecking no\n" > /root/.ssh/config
-
 # Clone the repository and initialize submodules
-RUN --mount=type=ssh git clone --recurse-submodules git@github.com:TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias .
+ARG GIT_USERNAME
+ARG GIT_TOKEN
+RUN git clone --recurse-submodules https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias .
 
 # Install dependencies
 COPY requirements.txt .
