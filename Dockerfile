@@ -1,4 +1,3 @@
-# syntax=docker/dockerfile:1.4
 FROM python:3.12-slim
 
 # Install necessary packages
@@ -13,9 +12,11 @@ ARG GIT_TOKEN
 ENV GIT_USERNAME=${GIT_USERNAME}
 ENV GIT_TOKEN=${GIT_TOKEN}
 
+# Configure Git to use HTTPS for submodules
+RUN git config --global url."https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/".insteadOf "https://github.com/"
+
 # Clone the repository and initialize submodules
 RUN git clone --recurse-submodules https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias . && \
-    git submodule foreach --recursive 'git config --local url.https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/.insteadOf git@github.com:' && \
     git submodule update --init --recursive
 
 # Install dependencies
