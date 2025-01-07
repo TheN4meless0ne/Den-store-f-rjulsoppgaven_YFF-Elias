@@ -14,7 +14,9 @@ ENV GIT_USERNAME=${GIT_USERNAME}
 ENV GIT_TOKEN=${GIT_TOKEN}
 
 # Clone the repository and initialize submodules
-RUN git clone --recurse-submodules https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias .
+RUN git clone --recurse-submodules https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias . && \
+    git submodule foreach --recursive 'git config --local url.https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/.insteadOf git@github.com:' && \
+    git submodule update --init --recursive
 
 # Install dependencies
 COPY requirements.txt .
