@@ -1,11 +1,13 @@
 from flask import Flask, render_template, send_from_directory, json, request, session, redirect, url_for
 import os
 from dotenv import load_dotenv
+from flask_frozen import Freezer
 
 load_dotenv()  # Load environment variables from .env file
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.secret_key = os.getenv('SECRET_KEY')  # Get the secret key from environment variables
+freezer = Freezer(app)
 
 def normalize_path(relative_path):
     return os.path.abspath(os.path.join(app.root_path, relative_path))

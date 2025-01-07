@@ -1,5 +1,6 @@
 services:
   web:
     build: .
-    ports:
-      - "5000:5000"
+    environment:
+      - GIT_USERNAME=${GIT_USERNAME}
+      - GIT_TOKEN=${GIT_TOKEN}
