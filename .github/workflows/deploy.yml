@@ -34,6 +34,9 @@ jobs:
           echo "Contents of build directory after running Docker container:"
           ls -la ${{ github.workspace }}/build
 
+      - name: List contents of build directory before deployment
+        run: ls -la ./build
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -46,3 +49,8 @@ jobs:
           enable_jekyll: false
           disable_nojekyll: false
           exclude_assets: .github
+
+      - name: List contents of gh-pages branch
+        run: |
+          git clone --branch gh-pages https://github.com/${{ github.repository_owner }}/Den-store-f-rjulsoppgaven_YFF-Elias.git gh-pages
+          ls -la gh-pages
