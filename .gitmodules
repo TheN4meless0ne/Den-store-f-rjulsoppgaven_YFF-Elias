@@ -1,4 +1,3 @@
 [submodule "infomodule"]
-	path = infomodule
-	url = https://github.com/TheN4meless0ne/infomodule
-    ignore = dirty
+    path = infomodule
+    url = git@github.com:TheN4meless0ne/infomodule.git
