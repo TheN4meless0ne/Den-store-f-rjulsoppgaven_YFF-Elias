@@ -52,12 +52,14 @@ jobs:
 
       - name: List contents of gh-pages branch before deployment
         run: |
+          rm -rf gh-pages
           git clone --branch gh-pages https://github.com/${{ github.repository_owner }}/Den-store-f-rjulsoppgaven_YFF-Elias.git gh-pages
           echo "Contents of gh-pages branch before deployment:"
           ls -la gh-pages
 
       - name: List contents of gh-pages branch after deployment
         run: |
+          rm -rf gh-pages
           git clone --branch gh-pages https://github.com/${{ github.repository_owner }}/Den-store-f-rjulsoppgaven_YFF-Elias.git gh-pages
           echo "Contents of gh-pages branch after deployment:"
           ls -la gh-pages
