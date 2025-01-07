@@ -27,7 +27,11 @@ jobs:
         run: |
           REPO_OWNER_LOWER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
           docker build --build-arg GIT_USERNAME=${{ secrets.GIT_USERNAME }} --build-arg GIT_TOKEN=${{ secrets.GIT_TOKEN }} -t ghcr.io/${REPO_OWNER_LOWER}/den-store-f-rjulsoppgaven-yff-elias:latest .
+          echo "Contents of build directory before running Docker container:"
+          ls -la ${{ github.workspace }}/build
           docker run --rm -e GIT_USERNAME=${{ secrets.GIT_USERNAME }} -e GIT_TOKEN=${{ secrets.GIT_TOKEN }} -e SECRET_KEY=${{ secrets.SECRET_KEY }} -v ${{ github.workspace }}/build:/app/build ghcr.io/${REPO_OWNER_LOWER}/den-store-f-rjulsoppgaven-yff-elias:latest
+          echo "Contents of build directory after running Docker container:"
+          ls -la ${{ github.workspace }}/build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
