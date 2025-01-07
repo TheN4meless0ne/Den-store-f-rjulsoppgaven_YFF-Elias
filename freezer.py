@@ -1,4 +1,7 @@
-from run import freezer
+from portfolio.run import freezer
 
 if __name__ == '__main__':
-    freezer.freeze()
+    try:
+        freezer.freeze()
+    except ValueError as e:
+        print(f"Error during freezing: {e}")
