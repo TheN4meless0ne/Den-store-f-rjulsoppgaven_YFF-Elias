@@ -25,8 +25,8 @@ jobs:
 
       - name: Build and run Docker image
         run: |
-          docker build --build-arg GIT_USERNAME=${{ secrets.GIT_USERNAME }} --build-arg GIT_TOKEN=${{ secrets.GIT_TOKEN }} -t ghcr.io/${{ secrets.GIT_USERNAME }}/den-store-f-rjulsoppgaven_yff_elias:latest .
-          docker run --rm -e GIT_USERNAME=${{ secrets.GIT_USERNAME }} -e GIT_TOKEN=${{ secrets.GIT_TOKEN }} -e SECRET_KEY=${{ secrets.SECRET_KEY }} -v ${{ github.workspace }}/build:/app/build ghcr.io/${{ secrets.GIT_USERNAME }}/den-store-f-rjulsoppgaven_yff_elias:latest
+          docker build --build-arg GIT_USERNAME=${{ secrets.GIT_USERNAME }} --build-arg GIT_TOKEN=${{ secrets.GIT_TOKEN }} -t ghcr.io/${{ github.repository_owner }}/den-store-f-rjulsoppgaven_yff_elias:latest .
+          docker run --rm -e GIT_USERNAME=${{ secrets.GIT_USERNAME }} -e GIT_TOKEN=${{ secrets.GIT_TOKEN }} -e SECRET_KEY=${{ secrets.SECRET_KEY }} -v ${{ github.workspace }}/build:/app/build ghcr.io/${{ github.repository_owner }}/den-store-f-rjulsoppgaven_yff_elias:latest
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

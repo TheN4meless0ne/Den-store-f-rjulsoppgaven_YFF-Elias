@@ -7,9 +7,13 @@ RUN apt-get update && apt-get install -y git openssh-client curl
 # Set the working directory
 WORKDIR /app
 
-# Clone the repository and initialize submodules
+# Set environment variables for GitHub credentials
 ARG GIT_USERNAME
 ARG GIT_TOKEN
+ENV GIT_USERNAME=${GIT_USERNAME}
+ENV GIT_TOKEN=${GIT_TOKEN}
+
+# Clone the repository and initialize submodules
 RUN git clone --recurse-submodules https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias .
 
 # Install dependencies
