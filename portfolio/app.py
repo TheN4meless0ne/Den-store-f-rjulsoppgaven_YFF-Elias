@@ -7,7 +7,7 @@ load_dotenv()  # Load environment variables from .env file
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.secret_key = os.getenv('SECRET_KEY', 'default_secret_key')  # Get the secret key from environment variables
-freezer = Freezer(app, with_static_files=True, log_url_for=True, destination='build')
+freezer = Freezer(app, destination='build')
 
 def normalize_path(relative_path):
     return os.path.abspath(os.path.join(app.root_path, relative_path))
