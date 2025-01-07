@@ -1,4 +1,4 @@
-from portfolio.app import freezer
+from portfolio.app import freezer, app
 import os
 
 if __name__ == '__main__':
@@ -6,8 +6,16 @@ if __name__ == '__main__':
         # Ensure the build directory exists
         os.makedirs('build', exist_ok=True)
         print("Build directory created or already exists.")
+        
+        # Log all registered routes
+        print("Registered routes:")
+        for rule in app.url_map.iter_rules():
+            print(rule)
+        
         freezer.freeze()
         print("Freezing completed.")
+        
+        # Log contents of the build directory
         print("Contents of build directory:")
         for root, dirs, files in os.walk('build'):
             for name in files:
