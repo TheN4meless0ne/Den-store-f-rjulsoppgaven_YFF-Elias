@@ -1,4 +1,4 @@
-from portfolio.run import freezer
+from portfolio.app import freezer
 
 if __name__ == '__main__':
     try:
