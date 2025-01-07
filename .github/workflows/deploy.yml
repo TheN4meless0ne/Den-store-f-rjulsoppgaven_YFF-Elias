@@ -63,5 +63,3 @@ jobs:
           git clone --branch gh-pages https://github.com/${{ github.repository_owner }}/Den-store-f-rjulsoppgaven_YFF-Elias.git gh-pages
           echo "Contents of gh-pages branch after deployment:"
           ls -la gh-pages
-
-# Trigger a new build by adding this comment
