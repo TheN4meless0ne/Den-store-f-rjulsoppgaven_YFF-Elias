@@ -14,3 +14,5 @@ if __name__ == '__main__':
                 print(os.path.join(root, name))
     except ValueError as e:
         print(f"Error during freezing: {e}")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
