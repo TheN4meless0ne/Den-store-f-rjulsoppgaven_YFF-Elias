@@ -9,6 +9,9 @@ WORKDIR /app
 # Copy the application code
 COPY . .
 
+# Initialize and update submodules
+RUN git submodule init && git submodule update
+
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 

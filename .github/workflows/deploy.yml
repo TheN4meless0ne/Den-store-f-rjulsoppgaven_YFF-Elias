@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          submodules: true  # Ensure submodules are checked out
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -47,8 +49,6 @@ jobs:
           keep_files: false
           force_orphan: false
           enable_jekyll: false
-          disable_nojekyll: false
-          exclude_assets: .github
 
       - name: List contents of gh-pages branch before deployment
         run: |
