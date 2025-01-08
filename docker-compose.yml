@@ -1,7 +1,0 @@
-services:
-  web:
-    build: .
-    environment:
-      - GIT_USERNAME=${GIT_USERNAME}
-      - GIT_TOKEN=${GIT_TOKEN}
-      - SECRET_KEY=${SECRET_KEY}
