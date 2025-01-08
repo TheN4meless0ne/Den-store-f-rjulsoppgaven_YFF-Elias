@@ -1,0 +1,13 @@
+.index {
+    width: 100%;
+    position: relative;
+    text-align: left; /* Ensure text is aligned to the left */
+}
+
+@media (max-width: 768px) {
+    .index {
+        flex-direction: column; /* Stack the content vertically */
+        align-items: center; /* Center the content */
+        width: 100%; /* Reset the width to 100% */
+    }
+}

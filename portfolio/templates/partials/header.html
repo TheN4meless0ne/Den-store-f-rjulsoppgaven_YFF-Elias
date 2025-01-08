@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+    <div class="container">
+        <a class="navbar-brand mr-4" href="/">Elias Greig-Vistnes</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" href="/">{{ translations.home }}</a>
+                <a class="nav-item nav-link" href="/portfolio">{{ translations.portfolio }}</a>
+                <a class="nav-item nav-link" href="/cv">{{ translations.cv }}</a>
+                <a class="nav-item nav-link" href="/files">{{ translations.files }}</a>
+                <a class="nav-item nav-link" href="https://github.com/TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias">GitHub</a>
+                <!-- Continue as needed -->
+            </div>
+        </div>
+        <div class="dropdown ms-auto me-2">
+            {% if session.language == 'EN' %}
+                <button onclick="window.location.href='{{ url_for('set_language', language='NO') }}'">
+                    {{ translations.language_button }}
+                </button>
+            {% else %}
+                <button onclick="window.location.href='{{ url_for('set_language', language='EN') }}'">
+                    {{ translations.language_button }}
+                </button>
+            {% endif %}
+        </div>
+        <form class="d-flex my-2 my-lg-0" onsubmit="alert('Søkefunksjonen er fortsatt under arbeid.'); return false;">
+            <input class="form-control form-control-sm me-2" type="search" placeholder="Search" aria-label="Søk">
+            <button class="btn btn-outline-success btn-sm" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
+</nav>

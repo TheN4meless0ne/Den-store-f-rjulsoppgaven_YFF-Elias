@@ -1,0 +1,9 @@
+services:
+  web:
+    build:
+      context: .
+      ssh: default
+    ports:
+      - "5000:5000"
+    volumes:
+      - /home/username/.ssh:/root/.ssh:ro

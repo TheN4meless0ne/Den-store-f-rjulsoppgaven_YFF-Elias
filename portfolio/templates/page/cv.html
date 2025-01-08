@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% if cv_pdf %}
+        <embed src="{{ url_for('download_file', filename=cv_pdf.filename) }}" type="application/pdf" width="100%" style="position: absolute; top: 0; left: 0; height: 100vh;" />
+    {% else %}
+        <p>CV not found.</p>
+    {% endif %}
+{% endblock %}

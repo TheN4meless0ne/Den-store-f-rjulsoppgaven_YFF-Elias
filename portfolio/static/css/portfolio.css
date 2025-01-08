@@ -1,0 +1,21 @@
+.portfolio {
+    width: 100%;
+    position: relative;
+    text-align: left; /* Ensure text is aligned to the left */
+}
+
+.education_item {
+    margin-bottom: 10px; /* Adjust this value to control the vertical distance */
+}
+
+.project_item {
+    margin-bottom: 10px; /* Adjust this value to control the vertical distance */
+}
+
+@media (max-width: 768px) {
+    .portfolio {
+        flex-direction: column; /* Stack the content vertically */
+        align-items: center; /* Center the content */
+        width: 100%; /* Reset the width to 100% */
+    }
+}
