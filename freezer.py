@@ -4,9 +4,9 @@ import os
 @freezer.register_generator
 def url_generator():
     yield '/'
-    yield '/portfolio.html'
-    yield '/cv.html'
-    yield '/files.html'
+    yield '/portfolio'
+    yield '/cv'
+    yield '/files'
 
 if __name__ == '__main__':
     try:
