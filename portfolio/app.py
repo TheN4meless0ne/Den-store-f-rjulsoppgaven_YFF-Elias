@@ -23,18 +23,23 @@ def load_data(language):
     pdf_path = normalize_path(f'{data_path}/pdf.json')
     translation_path = normalize_path(translation_path)
 
-    with open(portfolio_path, encoding='utf-8') as f:
-        portfolio_data = json.load(f)
-    with open(index_path, encoding='utf-8') as f:
-        index_data = json.load(f)
-    with open(image_path, encoding='utf-8') as f:
-        image_data = json.load(f)
-    with open(pdf_path, encoding='utf-8') as f:
-        pdf_data = json.load(f)
-    with open(translation_path, encoding='utf-8') as f:
-        translations = json.load(f)
-    
-    return portfolio_data, index_data, image_data, pdf_data, translations
+    try:
+        with open(portfolio_path, encoding='utf-8') as f:
+            portfolio_data = json.load(f)
+        with open(index_path, encoding='utf-8') as f:
+            index_data = json.load(f)
+        with open(image_path, encoding='utf-8') as f:
+            image_data = json.load(f)
+        with open(pdf_path, encoding='utf-8') as f:
+            pdf_data = json.load(f)
+        with open(translation_path, encoding='utf-8') as f:
+            translations = json.load(f)
+        
+        print(f"Data loaded successfully for language: {language}")
+        return portfolio_data, index_data, image_data, pdf_data, translations
+    except Exception as e:
+        print(f"Error loading data for language {language}: {e}")
+        return {}, {}, {}, {}, {}
 
 @app.route('/')
 def index():
