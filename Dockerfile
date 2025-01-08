@@ -6,28 +6,16 @@ RUN apt-get update && apt-get install -y git openssh-client curl
 # Set the working directory
 WORKDIR /app
 
-# Set environment variables for GitHub credentials
-ARG GIT_USERNAME
-ARG GIT_TOKEN
-ENV GIT_USERNAME=${GIT_USERNAME}
-ENV GIT_TOKEN=${GIT_TOKEN}
-
-# Configure Git to use HTTPS for submodules
-RUN git config --global url."https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/".insteadOf "https://github.com/"
-
-# Clone the repository and initialize submodules
-RUN git clone --recurse-submodules https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias . && \
-    git submodule update --init --recursive
+# Copy the application code
+COPY . .
 
 # Install dependencies
-COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Set FLASK_APP environment variable to your main application file
-ENV FLASK_APP=run.py
+# Ensure environment variables are passed correctly
+ENV GIT_USERNAME=${GIT_USERNAME}
+ENV GIT_TOKEN=${GIT_TOKEN}
+ENV SECRET_KEY=${SECRET_KEY}
 
-# Expose the port
-EXPOSE 5000
-
-# Command to run the app
+# Command to run the freezer script
 CMD ["python", "freezer.py"]
