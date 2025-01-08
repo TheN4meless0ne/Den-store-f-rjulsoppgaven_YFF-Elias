@@ -1,6 +1,10 @@
 from portfolio.app import freezer, app
 import os
 
+@freezer.register_generator
+def url_generator():
+    yield '/'
+
 if __name__ == '__main__':
     try:
         # Ensure the build directory exists
@@ -11,6 +15,11 @@ if __name__ == '__main__':
         print("Registered routes:")
         for rule in app.url_map.iter_rules():
             print(rule)
+        
+        # Log URLs being processed
+        print("URLs being processed:")
+        for url in freezer.freeze_yield():
+            print(url)
         
         freezer.freeze()
         print("Freezing completed.")
