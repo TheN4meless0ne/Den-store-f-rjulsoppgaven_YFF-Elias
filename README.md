@@ -24,16 +24,9 @@ git submodule update --remote infomodule
 ```
 
 #### Step 4
-Now it is time to start the Flask app.
-
-To do this we first need to enter the folder where the file `app.py` is located. In this project it is called `portfolio`.
+By running the `run.py` file through our terminal we start our Flask app.
 ``` Shell
-cd portfolio
-```
-
-Once we're in the folder, we are able to run `app.py` through our terminal which then starts our Flask app.
-``` Shell
-python app.py
+python run.py
 ```
 
 #### Step 5
