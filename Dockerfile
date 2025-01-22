@@ -29,4 +29,6 @@ ENV FLASK_APP=run.py
 # Expose the port
 EXPOSE 5000
 
-CMD ["sh", "entrypoint.sh"]
+RUN chmod +x ./entrypoint.sh
+
+CMD ["sh", "./entrypoint.sh"]
