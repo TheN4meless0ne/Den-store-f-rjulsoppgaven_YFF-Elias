@@ -15,9 +15,6 @@ RUN mkdir -p /root/.ssh && chmod 700 /root/.ssh && \
 COPY id_rsa /root/.ssh/id_rsa
 RUN chmod 600 /root/.ssh/id_rsa
 
-# Clone the repository and initialize submodules
-RUN --mount=type=ssh git clone --recurse-submodules git@github.com:TheN4meless0ne/Den-store-f-rjulsoppgaven_YFF-Elias .
-
 # Install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
@@ -32,5 +29,4 @@ ENV FLASK_APP=run.py
 # Expose the port
 EXPOSE 5000
 
-# Command to run the app
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["sh", "entrypoint.sh"]
