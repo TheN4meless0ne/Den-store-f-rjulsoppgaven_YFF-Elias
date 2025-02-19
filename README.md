@@ -18,9 +18,9 @@ pip install -r requirements.txt
 ```
 
 #### Step 3
-We want to make sure our submodule is up to date before starting the Flask app, we can do this from our terminal.
+We want to make sure our submodule is initiated and up to date before starting the Flask app, we can do this from our terminal.
 ``` Shell
-git submodule update --remote infomodule
+git submodule update --init --remote infomodule
 ```
 
 #### Step 4
